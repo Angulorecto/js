@@ -23,10 +23,13 @@
       var hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
       var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-
-      // Update the countdown HTML element
-      document.getElementById("countdown").innerHTML = "Time left: " + days + " days " + hours + " hours "
-      + minutes + " minute " + seconds + " seconds ";
+      if (timeRemaining < 60) {
+        document.getElementById("countdown").innerHTML = "Time left: " + days + " days " + hours + " hours "
+        + minutes + " minute " + seconds + " seconds ";
+      } else {
+        document.getElementById("countdown").innerHTML = "Time left: " + days + " days " + hours + " hours "
+        + minutes + " minutes " + seconds + " seconds ";
+      }
 
       // Stop the countdown when it reaches zero
       if (timeRemaining < 0) {
