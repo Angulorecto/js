@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Countdown to a Specific Date and Time</title>
+  <title>Time to summer break</title>
 </head>
 <body>
   <h1 id="countdown"></h1>
@@ -25,13 +25,13 @@
       var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 
       // Update the countdown HTML element
-      document.getElementById("countdown").innerHTML = "Countdown: " + days + "d " + hours + "h "
-      + minutes + "m " + seconds + "s ";
+      document.getElementById("countdown").innerHTML = "Time left: " + days + " days " + hours + " hours "
+      + minutes + " minute " + seconds + " seconds ";
 
       // Stop the countdown when it reaches zero
       if (timeRemaining < 0) {
         clearInterval(countdown);
-        document.getElementById("countdown").innerHTML = "EXPIRED";
+        document.getElementById("countdown").innerHTML = "SUMMER BREAK!!!";
       }
     }, 1000);
   </script>
