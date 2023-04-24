@@ -3,8 +3,10 @@
 <head>
   <title>Time to summer break</title>
 </head>
-<body>
-  <h1 id="countdown"></h1>
+<body style="background-color:black;">
+  <h1 align='center'>Time left until summer vacation:</h1>
+  <h3 align='center' id="countdown"></h3>
+  <h3 align='center' id="identifyer">Days Hours Minutes Seconds</h3>
 
   <script>
     // Set the countdown date and time
@@ -24,11 +26,14 @@
       var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
       var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
       if (timeRemaining < 60) {
-        document.getElementById("countdown").innerHTML = "Time left: " + days + " days " + hours + " hours "
-        + minutes + " minute " + seconds + " seconds ";
-      } else {
-        document.getElementById("countdown").innerHTML = "Time left: " + days + " days " + hours + " hours "
-        + minutes + " minutes " + seconds + " seconds ";
+        document.getElementById("countdown").innerHTML = seconds;
+        document.getElementById("identifyer").innerHTML = "Seconds";
+      } else if (timeRemaining < 3600) {
+        document.getElementById("countdown").innerHTML = minutes + "  " + seconds;
+        document.getElementById("identifyer").innerHTML = "Minutes Seconds";
+      } else if (timeRemaining < 216000) {
+        document.getElementById("countdown").innerHTML = hours + "  " + minutes + "  " + seconds;
+        document.getElementById("identifyer").innerHTML = "Hours Minutes Seconds";
       }
 
       // Stop the countdown when it reaches zero
