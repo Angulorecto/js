@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Countdown to a Specific Date and Time</title>
+</head>
+<body>
+  <h1 id="countdown"></h1>
+
+  <script>
+    // Set the countdown date and time
+    var countdownDate = new Date("May 1, 2023 00:00:00").getTime();
+
+    // Update the countdown every second
+    var countdown = setInterval(function() {
+      // Get the current date and time
+      var now = new Date().getTime();
+
+      // Calculate the time remaining
+      var timeRemaining = countdownDate - now;
+
+      // Calculate days, hours, minutes, and seconds remaining
+      var days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+      // Update the countdown HTML element
+      document.getElementById("countdown").innerHTML = "Countdown: " + days + "d " + hours + "h "
+      + minutes + "m " + seconds + "s ";
+
+      // Stop the countdown when it reaches zero
+      if (timeRemaining < 0) {
+        clearInterval(countdown);
+        document.getElementById("countdown").innerHTML = "EXPIRED";
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
