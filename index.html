@@ -26,7 +26,9 @@
       var hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
       var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-
+      
+      document.getElementById("countdown").innerHTML = days + "  " + hours + "  " + minutes + "  " + seconds;
+      
       // Stop the countdown when it reaches zero
       if (timeRemaining < 0) {
         clearInterval(countdown);
